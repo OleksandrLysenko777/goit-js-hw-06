@@ -12,9 +12,9 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
-const createGalleryItem = ({ url, alt }) => `<li><img scr="${url}" alt="${alt}" width = 200 height = auto><li>`;
-const galleryPhoto = images.reduce((acc, item) => acc + createGalleryItem(item), "");
-const galleryList = document.querySelector(".gallery");
-galleryList.insertAdjacentHTML('afterbegin', galleryPhoto);
-galleryList.setAttribute("style", "list-style-type: none; display: flex;");
+const gallery = document.querySelector('.gallery');
 
+const renderGallery = ({ url, alt }) =>
+  `<li><img src="${url}" alt="${alt}" width = "200" height = "auto"></li>`;
+const galleryMarkup = images.map(renderGallery).join('');
+gallery.insertAdjacentHTML('beforeend', galleryMarkup);
