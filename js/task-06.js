@@ -12,5 +12,6 @@ inputValid.oninput = function () {
     }
     if (inputValid.value.length !== inputTotalLength && inputValid.value.length !== 0) {
         inputValid.classList.add("invalid");
+        inputValid.classList.remove("valid");
     };
 }
